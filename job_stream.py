@@ -1,4 +1,3 @@
-from apps.config.mongodb import MONGO_CONNECTION_STRING
 import streamlit as st
 from pymongo import MongoClient
 from bson import ObjectId
