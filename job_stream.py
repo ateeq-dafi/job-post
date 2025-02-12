@@ -3,6 +3,9 @@ import streamlit as st
 from pymongo import MongoClient
 from bson import ObjectId
 
+# Load API key from Streamlit secrets
+MONGO_CONNECTION_STRING = st.secrets["MongoDB"]["MONGO_CONNECTION_STRING"]
+
 # MongoDB Connection
 client = MongoClient(MONGO_CONNECTION_STRING)  # Update with your DB connection
 db = client["latest_database"]  # Replace with your database name
