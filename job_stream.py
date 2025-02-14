@@ -24,6 +24,10 @@ def get_or_create(collection_name, field_name, value):
     existing = collection.find_one({field_name: value})
     return existing["_id"] if existing else collection.insert_one({field_name: value}).inserted_id
 
+def is_designation_unique(designation_name):
+    """Checks if the designation is already used in the jobs collection."""
+    return collection.find_one({"designationId": get_or_create("designations", "name", designation_name)}) is None
+
 st.set_page_config(page_title="Job Posting Form")
 
 hide_menu_style = """
@@ -75,6 +79,10 @@ with st.form("job_form"):
             errors.append("Job Description is required.")
         if not address_name.strip():
             errors.append("Address is required.")
+
+        # Check if designation is unique
+        if not is_designation_unique(designation_name):
+            errors.append(f"The designation '{designation_name}' is already in use. Please choose a different one.")
 
         # Check salary range
         if salary_from > salary_to:
