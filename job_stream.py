@@ -7,7 +7,7 @@ MONGO_CONNECTION_STRING = st.secrets["MongoDB"]["MONGO_CONNECTION_STRING"]
 
 # MongoDB Connection
 client = MongoClient(MONGO_CONNECTION_STRING)
-db = client["latest_database"]
+db = client["database"]
 collection = db["jobs"]
 
 # Enums
