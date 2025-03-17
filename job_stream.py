@@ -13,7 +13,7 @@ collection = db["jobs"]
 # Enums
 SalaryCurrencyEnum = ["USD", "EUR", "PKR"]
 SalaryTypeEnum = ["Monthly", "Hourly"]
-JobTypeEnum = ["Full-time", "Part-time", "Contract"]
+JobTypeEnum = ["Full-Time", "Part-Time", "Contract"]
 ApplicantPreferenceEnum = ["Local", "Remote", "Nearby"]
 GenderEnum = ["Male", "Female", "Any"]
 JobShiftEnum = ["Morning", "Evening", "Night"]
